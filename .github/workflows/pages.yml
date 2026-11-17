@@ -30,7 +30,7 @@ jobs:
       - name: Assemble Pages artifact
         run: |
           mkdir -p _site
-          cp index.html _site/
+          cp index.html google*.html _site/
           cp -R privacy support _site/
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
