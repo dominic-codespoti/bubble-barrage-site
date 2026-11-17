@@ -23,7 +23,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16.png">
 <link rel="apple-touch-icon" href="/assets/img/app-icon-180.png">
-<link rel="preload" as="image" href="/assets/img/hero-bg-800.webp" type="image/webp" imagesrcset="/assets/img/hero-bg-800.webp 800w, /assets/img/hero-bg-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/img/hero-shallows-portrait.webp" type="image/webp" media="(max-width: 699px)" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/img/hero-shallows-800.webp" type="image/webp" media="(min-width: 700px)" fetchpriority="high">
 <link rel="preload" as="font" href="/assets/fonts/fredoka-700.woff2" type="font/woff2" crossorigin>
 <link rel="preload" as="font" href="/assets/fonts/fredoka-500.woff2" type="font/woff2" crossorigin>
 <style>
@@ -57,16 +58,19 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-bg" aria-hidden="true">
       <picture>
-        <source type="image/webp" srcset="/assets/img/hero-bg-800.webp 800w, /assets/img/hero-bg-1600.webp 1600w" sizes="100vw">
-        <img src="/assets/img/hero-bg-800.jpg" alt="" fetchpriority="high" decoding="async" width="1600" height="900">
+        <source type="image/webp" media="(max-width: 699px)" srcset="/assets/img/hero-shallows-portrait.webp">
+        <source type="image/webp" srcset="/assets/img/hero-shallows-800.webp 800w, /assets/img/hero-shallows-full.webp 1536w" sizes="100vw">
+        <source media="(max-width: 699px)" srcset="/assets/img/hero-shallows-portrait.jpg">
+        <img src="/assets/img/hero-shallows-800.jpg" alt="" fetchpriority="high" decoding="async" width="800" height="450">
       </picture>
     </div>
+    <div class="rays" aria-hidden="true"><span class="r1"></span><span class="r2"></span><span class="r3"></span></div>
+    <div class="bubbles" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><span class="b5"></span><span class="b6"></span><span class="b7"></span><span class="b8"></span></div>
     <div class="wrap hero-grid">
       <div>
         <picture><source type="image/webp" srcset="/assets/img/wordmark-640.webp 640w, /assets/img/wordmark-768.webp 768w" sizes="(max-width: 700px) 90vw, 480px"><img class="wordmark" src="/assets/img/wordmark-640.png" width="640" height="320" alt="Bubble Barrage" fetchpriority="high" decoding="async"></picture>
         <h1 class="tagline" id="hero-title"><span class="n1">1 dolphin. 1 minigun.</span> 5-minute dives.</h1>
-        <p class="lede">Steer with one thumb, aim with the other, and chain bubble kills against the whole reef — then swear allegiance to an ocean emperor and beat the Reef Warden before the timer runs out.</p>
-        <p><strong>Free download. No ads. No subscriptions. Plays offline.</strong></p>
+        <p class="lede">Steer with one thumb, aim with the other. Chain bubble kills, swear allegiance to an ocean emperor, and beat the Reef Warden before the timer runs out.</p>
         <div class="store-badges">
           <a class="badge" href="https://apps.apple.com/app/id6830389126" aria-label="Download on the App Store"><img src="/assets/badges/apple-badge.svg" width="180" height="60" alt="Download on the App Store"></a>
           <a class="badge gp" href="https://play.google.com/store/apps/details?id=org.dolphino.bubblebarrage" aria-label="Get it on Google Play"><img src="/assets/badges/gp-badge.png" width="168" height="65" alt="Get it on Google Play"></a>
@@ -98,24 +102,25 @@
       <p class="lede">Every dive is a five-minute survival run. Chain kills to fill the style meter, grab pearls to level up, and pick upgrades between waves.</p>
       <div class="cards cols3">
         <article class="glass card">
-          <div class="glyph" aria-hidden="true">🫧</div>
-          <h3>Swim with one thumb, aim with the other</h3>
-          <p>Drag anywhere to steer; the aim stick turns the head-mounted minigun independently, so you can flee forward while shooting backward. Tap AUTO for fixed-direction fire, or fine-aim every volley yourself. Portrait or landscape — the UI re-lays out live.</p>
+          <span class="dot" aria-hidden="true"></span>
+          <h3>Twin-stick swimming</h3>
+          <p>Steer with one thumb, aim the minigun with the other — even behind you while you flee. Portrait or landscape.</p>
         </article>
         <article class="glass card">
-          <div class="glyph" aria-hidden="true">💨</div>
-          <h3>Dash through danger</h3>
-          <p>DASH bursts you in your swim direction with brief invulnerability, then recharges in under two seconds. Certain boons turn the dash itself into a weapon — Veyra&rsquo;s Lunge Bite makes it an invulnerable attack run.</p>
+          <span class="dot" aria-hidden="true"></span>
+          <h3>Dash or die</h3>
+          <p>A burst of speed with brief invulnerability. Time it through jaws, or turn it into a weapon.</p>
         </article>
         <article class="glass card">
-          <div class="glyph" aria-hidden="true">👑</div>
-          <h3>Beat the Reef Warden</h3>
-          <p>Elite hunters cut lanes through the reef at 1:30 and 3:00. At 4:00 the Reef Warden arrives — defeat it within 60 seconds or the run is lost. Win to unlock tougher tides and new starting loadouts.</p>
+          <span class="dot" aria-hidden="true"></span>
+          <h3>Five minutes, one Warden</h3>
+          <p>Survive the hunters, then beat the Reef Warden before the clock runs out. Win to climb tides.</p>
         </article>
       </div>
     </div>
   </section>
 
+  <div class="wrap" aria-hidden="true"><span class="wave"><svg viewBox="0 0 1200 56" preserveAspectRatio="none" focusable="false"><path d="M0 28 Q 75 0 150 28 T 300 28 T 450 28 T 600 28 T 750 28 T 900 28 T 1050 28 T 1200 28 V56 H0 Z" fill="currentColor"/></svg></span></div>
   <!-- ============ EMPERORS ============ -->
   <section class="block" id="emperors" aria-labelledby="emp-h">
     <div class="wrap">
@@ -130,7 +135,7 @@
             <h3 class="ceremony">Aurelius</h3>
             <p class="small">The Rime-Crowned King</p>
             <p class="quote">&ldquo;Your little bubbles lack discipline. Allow me.&rdquo;</p>
-            <p>Bubbles <strong>Chill</strong> longer and hit harder. Chilled hits ricochet between foes, hits leave <strong>Black Ice</strong> frost patches, and a Rime Mantle freezes whatever crowds you.</p>
+            <p>Chill bubbles, ricocheting hits and Black Ice frost patches. The cold controls the crowd.</p>
           </div>
         </article>
         <article class="glass emperor v">
@@ -140,7 +145,7 @@
             <h3 class="ceremony">Veyra</h3>
             <p class="small">Empress of the White Maw</p>
             <p class="quote">&ldquo;Stop fleeing. Choose your prey.&rdquo;</p>
-            <p>A hopping <strong>Mark</strong> paints bonus damage on one foe at a time. Marked hits crit, harpoons pierce, and <strong>Lunge Bite</strong> bends your dash toward the Mark to bite clean through it.</p>
+            <p>Mark one foe for bonus damage, then crit it down. Lunge Bite turns your dash into the kill.</p>
           </div>
         </article>
         <article class="glass emperor n">
@@ -150,31 +155,33 @@
             <h3 class="ceremony">Nerath</h3>
             <p class="small">The Cathedral Below</p>
             <p class="quote">&ldquo;Little thunder-fish. The abyss is listening.&rdquo;</p>
-            <p>Spectral <strong>tendrils</strong> strike on their own, drag foes in, and leave damaging ink pools. The <strong>Ink Veil</strong> swallows enemy orbs and slows everything inside it.</p>
+            <p>Spectral tendrils strike on their own while the Ink Veil swallows orbs and slows the swarm.</p>
           </div>
         </article>
       </div>
       <article class="glass concord">
         <h3>Rare Concords join two courts</h3>
-        <p style="margin:0">Eligible runs can unite emperors: Cold-Blooded Royalty (Aurelius&nbsp;+&nbsp;Veyra), Maelstrom Pounce (Veyra&nbsp;+&nbsp;Nerath) and Frozen Veil (Nerath&nbsp;+&nbsp;Aurelius). Only one evolution or emperor capstone per run — choose the dive-defining one.</p>
+        <p style="margin:0">Cold-Blooded Royalty, Maelstrom Pounce, Frozen Veil. One run-defining capstone per dive — choose well.</p>
       </article>
     </div>
   </section>
 
+  <div class="wrap" aria-hidden="true"><span class="wave"><svg viewBox="0 0 1200 56" preserveAspectRatio="none" focusable="false"><path d="M0 28 Q 75 0 150 28 T 300 28 T 450 28 T 600 28 T 750 28 T 900 28 T 1050 28 T 1200 28 V56 H0 Z" fill="currentColor"/></svg></span></div>
   <!-- ============ TIDES ============ -->
   <section class="block" id="tides" aria-labelledby="tides-h">
     <div class="wrap">
       <span class="eyebrow">Win. Climb. Survive.</span>
       <h2 id="tides-h">Tides I–V, then the endless Abyss</h2>
-      <p class="lede">Win a tide to unlock the next. Harder tides raise enemy health, contact damage and spawn rate — and pay more Sand Dollars per dive.</p>
-      <div class="tides">
-        <article class="glass tide"><h3>Tide I · Sheltered</h3><span class="mult">Rewards ×1</span><p>Standard enemy strength and pace. Win to unlock Tide II.</p></article>
-        <article class="glass tide"><h3>Tide II · Rising</h3><span class="mult">Rewards ×1.25</span><p>Enemies +25% health, +15% contact damage, +12% spawn rate. Win to unlock Tide III.</p></article>
-        <article class="glass tide"><h3>Tide III · Storm</h3><span class="mult">Rewards ×1.5</span><p>Enemies +50% health, +30% contact damage, +24% spawn rate. Win to unlock Tide IV.</p></article>
-        <article class="glass tide"><h3>Tide IV · Surge</h3><span class="mult">Rewards ×1.75</span><p>Enemies +100% health, +70% contact damage, +50% spawn rate; hunters arrive 10&nbsp;s early. Win to unlock Tide V.</p></article>
-        <article class="glass tide"><h3>Tide V · Maelstrom</h3><span class="mult">Rewards ×2</span><p>Enemies +170% health, +130% contact damage, +80% spawn rate; hunters 20&nbsp;s early, a faster Warden. Win to unlock the Abyss.</p></article>
-        <article class="glass tide abyss"><h3>Abyss · Endless</h3><span class="mult">Rewards ×2 + 15 Sand Dollars per minute</span><p>Plays as Tide V until the Warden falls — then the dive never ends. Every 30 seconds the pressure rises: faster spawns, tougher foes, and a hunter closing in. Survive as long as you can.</p></article>
-      </div>
+      <p class="lede">Win a tide to unlock the next. The deeper you dive, the crueler — and richer — the sea.</p>
+      <ol class="gauge">
+        <li class="glass"><span class="d" aria-hidden="true">I</span><span class="t">Sheltered</span><span class="chip">Rewards ×1</span></li>
+        <li class="glass"><span class="d" aria-hidden="true">II</span><span class="t">Rising</span><span class="chip">Rewards ×1.25</span></li>
+        <li class="glass"><span class="d" aria-hidden="true">III</span><span class="t">Storm</span><span class="chip">Rewards ×1.5</span></li>
+        <li class="glass"><span class="d" aria-hidden="true">IV</span><span class="t">Surge</span><span class="chip">Rewards ×1.75</span></li>
+        <li class="glass"><span class="d" aria-hidden="true">V</span><span class="t">Maelstrom</span><span class="chip">Rewards ×2</span></li>
+        <li class="glass abyss"><span class="d" aria-hidden="true">∞</span><span class="t">Abyss <small>· endless past the Warden, +15 Sand Dollars a minute</small></span><span class="chip">Rewards ×2</span></li>
+      </ol>
+      <p class="small">Win a tide to unlock the next. Each tide hits harder — and pays more per dive.</p>
     </div>
   </section>
 
@@ -183,24 +190,16 @@
     <div class="wrap">
       <span class="eyebrow">The sea fights back</span>
       <h2 id="sea-h">Not just hordes. Hunters, ambushers, events.</h2>
-      <div class="cards cols2">
-        <article class="glass card">
-          <h3>New predators, new rules</h3>
-          <ul class="tick">
-            <li><strong>Shellback crabs</strong> (from 1:00) shrug bubbles off their armoured front — flank them or aim the turret at their backs.</li>
-            <li><strong>Pufferfish</strong> (from 1:30) inflate and spit slowing spine volleys. Pop them first for a style bonus.</li>
-            <li><strong>Moray eels</strong> (from 2:00) flash a warning lane, lunge 7&nbsp;m, then lie exposed — punish it.</li>
-            <li><strong>Anglerfish</strong> (from 1:00) hover at range and lob dodgeable amber orbs. Your bubbles can pop the orbs mid-flight.</li>
-          </ul>
-        </article>
-        <article class="glass card">
-          <h3>World events every 30–45 seconds</h3>
-          <ul class="tick">
-            <li><strong>Giant clams</strong> crack open into a pearl burst worth about a level — sometimes a heal.</li>
-            <li><strong>Sea mines</strong> chain-detonate in a 4&nbsp;m blast. Shoot one, or lure the horde into it.</li>
-            <li><strong>Bubble vents</strong> erupt into a 1.6× speed column that flings and stuns nearby enemies.</li>
-          </ul>
-        </article>
+      <div class="chips" role="list" aria-label="Predators">
+        <span class="glass chip" role="listitem"><strong>Crabs</strong><span class="cap">armoured fronts — flank them</span></span>
+        <span class="glass chip" role="listitem"><strong>Pufferfish</strong><span class="cap">pop them before they spit</span></span>
+        <span class="glass chip" role="listitem"><strong>Eels</strong><span class="cap">dodge the lane, punish the lunge</span></span>
+        <span class="glass chip" role="listitem"><strong>Anglerfish</strong><span class="cap">pop their orbs mid-flight</span></span>
+      </div>
+      <div class="chips" role="list" aria-label="World events">
+        <span class="glass chip" role="listitem"><strong>Clams</strong><span class="cap">crack open for pearls</span></span>
+        <span class="glass chip" role="listitem"><strong>Mines</strong><span class="cap">lure the horde in</span></span>
+        <span class="glass chip" role="listitem"><strong>Vents</strong><span class="cap">ride the speed column</span></span>
       </div>
     </div>
   </section>
@@ -213,37 +212,39 @@
       <div class="cards cols2">
         <article class="glass card">
           <h3>Reef Workshop</h3>
-          <p>Every dive — won, lost or abandoned — pays <strong>Sand Dollars</strong>: pearl value, survival time, hunters, the Warden, tide bonus. Spend them on capped, permanent stat lines with a free refund and an off switch. About one tide of power in total — skill still decides dives.</p>
+          <p>Every dive pays <strong>Sand Dollars</strong> — spend them on capped, permanent upgrades with a free refund. Skill still decides dives.</p>
         </article>
         <article class="glass card">
           <h3>Wardrobe</h3>
-          <p>Dress the dolphin in paints, gun finishes and bubble trails. Some are earned from the calendar and tide milestones; Sand Dollar styles sit in their own group. <strong>Sand Dollars are earned in play, never sold.</strong></p>
+          <p>Paints, gun finishes, bubble trails. Some earned by playing; <strong>Sand Dollars are never sold.</strong></p>
         </article>
       </div>
     </div>
   </section>
 
+  <div class="wrap" aria-hidden="true"><span class="wave"><svg viewBox="0 0 1200 56" preserveAspectRatio="none" focusable="false"><path d="M0 28 Q 75 0 150 28 T 300 28 T 450 28 T 600 28 T 750 28 T 900 28 T 1050 28 T 1200 28 V56 H0 Z" fill="currentColor"/></svg></span></div>
   <!-- ============ FAIR ============ -->
   <section class="block" id="fair" aria-labelledby="fair-h">
     <div class="wrap">
       <span class="eyebrow">Fair by design</span>
       <h2 id="fair-h">Free. No ads. Nothing pay-to-win.</h2>
       <div class="fair" style="margin-top:1.4rem">
-        <article class="glass pill"><h3>Free download</h3><p style="margin:0">The whole game is free. Optional permanent cosmetics only: five dolphin skins ($1.99 each or $4.99 for the collection, prices localized by the stores) plus a Supporter Pack. Nothing that makes you stronger is for sale.</p></article>
-        <article class="glass pill"><h3>No ads, no subscriptions, no coins</h3><p style="margin:0">No advertising SDK, no analytics SDK, no currencies to top up. Sand Dollars can only be earned by diving.</p></article>
-        <article class="glass pill"><h3>Offline play</h3><p style="margin:0">Core single-player dives, settings and progression work fully offline. Only purchases, restore and platform cloud save need a connection.</p></article>
-        <article class="glass pill"><h3>Eight languages</h3><p style="margin:0">English, Spanish, Brazilian Portuguese, German, French, Japanese, Korean and Simplified Chinese — applied instantly in Settings.</p></article>
+        <article class="glass pill"><h3>Free download</h3><p style="margin:0">Optional permanent cosmetics only. Nothing that makes you stronger is for sale.</p></article>
+        <article class="glass pill"><h3>No ads, no subscriptions</h3><p style="margin:0">No ads, no analytics, no coins to top up. Sand Dollars are earned by diving.</p></article>
+        <article class="glass pill"><h3>Offline play</h3><p style="margin:0">Core dives work fully offline. Only purchases, restore and cloud save need a connection.</p></article>
+        <article class="glass pill"><h3>Eight languages</h3><p style="margin:0">English, Spanish, Brazilian Portuguese, German, French, Japanese, Korean and Simplified Chinese.</p></article>
       </div>
     </div>
   </section>
 
+  <div class="wrap" aria-hidden="true"><span class="wave"><svg viewBox="0 0 1200 56" preserveAspectRatio="none" focusable="false"><path d="M0 28 Q 75 0 150 28 T 300 28 T 450 28 T 600 28 T 750 28 T 900 28 T 1050 28 T 1200 28 V56 H0 Z" fill="currentColor"/></svg></span></div>
   <!-- ============ GALLERY ============ -->
   <section class="block" id="gallery" aria-labelledby="gal-h">
     <div class="wrap">
       <span class="eyebrow">Postcards from the reef</span>
       <h2 id="gal-h">Screenshots</h2>
       <p class="lede">Captured from real runs on a phone.</p>
-      <div class="shots">
+      <div class="strip">
         <figure><a href="/assets/img/01-fight-1206.webp"><img src="/assets/img/01-fight-603.webp" width="603" height="1311" alt="Mid-fight: the dolphin fires a bubble barrage into a reef horde" loading="lazy" decoding="async"></a><figcaption>1 dolphin. 1 minigun.</figcaption></figure>
         <figure><a href="/assets/img/02-patron-1206.webp"><img src="/assets/img/02-patron-603.webp" width="603" height="1311" alt="Emperor encounter ceremony introducing a patron" loading="lazy" decoding="async"></a><figcaption>Pick your emperor.</figcaption></figure>
         <figure><a href="/assets/img/03-boon-1206.webp"><img src="/assets/img/03-boon-603.webp" width="603" height="1311" alt="Choosing one of three emperor boon cards" loading="lazy" decoding="async"></a><figcaption>Stack wild upgrades.</figcaption></figure>
@@ -251,7 +252,6 @@
         <figure><a href="/assets/img/05-tides-1206.webp"><img src="/assets/img/05-tides-603.webp" width="603" height="1311" alt="Journal listing Tides I to V and the endless Abyss" loading="lazy" decoding="async"></a><figcaption>Tides I–V and the Abyss.</figcaption></figure>
         <figure><a href="/assets/img/06-workshop-1206.webp"><img src="/assets/img/06-workshop-603.webp" width="603" height="1311" alt="Reef Workshop upgrade list bought with earned Sand Dollars" loading="lazy" decoding="async"></a><figcaption>Workshop: earned, never sold.</figcaption></figure>
         <figure><a href="/assets/img/07-wardrobe-1206.webp"><img src="/assets/img/07-wardrobe-603.webp" width="603" height="1311" alt="Wardrobe with dolphin paints, gun finishes and trails" loading="lazy" decoding="async"></a><figcaption>Wardrobe: dress the dolphin.</figcaption></figure>
-        <figure><a href="/assets/img/feature-graphic-1024.jpg"><img src="/assets/img/feature-graphic-1024.jpg" width="1024" height="500" alt="Bubble Barrage feature art: the dolphin hero over the reef" loading="lazy" decoding="async" style="aspect-ratio:1024/500"></a><figcaption>Key art.</figcaption></figure>
       </div>
     </div>
   </section>
@@ -269,15 +269,16 @@
   </section>
 
   <!-- ============ DOWNLOAD ============ -->
-  <section class="block" id="download" aria-labelledby="dl-h">
-    <div class="wrap" style="text-align:center">
-      <span class="eyebrow">Dive in</span>
-      <h2 id="dl-h">Free download. No ads. Just bubbles.</h2>
+  <section class="finale" id="download" aria-labelledby="dl-h">
+    <div class="finale-bg" aria-hidden="true"><img src="/assets/img/finale-reef.jpg" alt="" loading="lazy" decoding="async" width="504" height="500"></div>
+    <div class="finale-inner">
+      <picture><source type="image/webp" srcset="/assets/img/wordmark-640.webp 640w, /assets/img/wordmark-768.webp 768w" sizes="(max-width: 700px) 90vw, 560px"><img class="wordmark" src="/assets/img/wordmark-640.png" width="640" height="320" alt="Bubble Barrage" loading="lazy" decoding="async"></picture>
+      <h2 id="dl-h" style="position:absolute;left:-999px">Download Bubble Barrage</h2>
       <div class="store-badges" style="justify-content:center">
         <a class="badge" href="https://apps.apple.com/app/id6830389126" aria-label="Download on the App Store"><img src="/assets/badges/apple-badge.svg" width="180" height="60" alt="Download on the App Store" loading="lazy" decoding="async"></a>
         <a class="badge gp" href="https://play.google.com/store/apps/details?id=org.dolphino.bubblebarrage" aria-label="Get it on Google Play"><img src="/assets/badges/gp-badge.png" width="168" height="65" alt="Get it on Google Play" loading="lazy" decoding="async"></a>
       </div>
-      <p class="small">Requires iOS 15+ or Android 8.0 (API 24)+ · Plays in portrait or landscape</p>
+      <p class="lede" style="text-align:center;margin-top:1rem">Free on iPhone and Android. No ads. Plays offline.</p>
     </div>
   </section>
 
